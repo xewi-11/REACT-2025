@@ -1,19 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Saludo from './components/Saludo';
-import Metodos from './components/Metodos';
-import DobleNumero from './components/DobleNumero';
+import SumarNumeros from './components/SumarNumeros';
+import SaludoPadre from './components/saludo/SaludoPadre';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
-    <Saludo nombre="Javier" edad="20"/>
-    <Metodos/>
-    <DobleNumero/>
+    {/* <SumarNumeros numero1="20" numero2="20"/>
+    <SumarNumeros numero1="10" numero2="11"/> */}
+    <SaludoPadre/>
   </React.StrictMode>
 );
 
