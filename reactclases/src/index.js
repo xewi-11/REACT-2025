@@ -8,6 +8,7 @@ import DibujoComplejo from './components/dibujoscomplejos/DibujoComplejo';
 import DibujoDinamico from './components/dibujoscomplejosdinamicosrender/DibujoDinamico';
 import PadreDeportes from './components/comunicacionpadreehijo/PadreDeportes';
 import PadreNumeros from './components/comunicacionhijoapadre/PadreNumeros';
+import Comics from './components/comics/Comics';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -17,7 +18,8 @@ root.render(
     {/* <DibujoComplejo/>
     <DibujoDinamico/> */}
     {/* <PadreDeportes/> */}
-    <PadreNumeros/>
+    {/* <PadreNumeros/> */}
+    <Comics/>
   </React.StrictMode>
 );
 
