@@ -1,14 +1,15 @@
 import axios from "axios";
 import React, { Component } from "react";
-import './ServiceApiSuppliers.css'
+import "./ServiceApiSuppliers.css";
+import Global from "../Global";
 export default class ServiceApiSuppliers extends Component {
-  url = "https://services.odata.org/V4/Northwind/Northwind.svc/suppliers";
+  url = Global.urlNorthwind;
   cajaid = React.createRef();
 
   loadProvedores = () => {
-
+    let request = "suppliers";
     console.log("antes del servicio");
-    axios.get(this.url).then((response) => {
+    axios.get(this.url + request).then((response) => {
       console.log("Leyendos datos");
       this.setState({
         provedores: response.data.value,
@@ -16,12 +17,12 @@ export default class ServiceApiSuppliers extends Component {
     });
     console.log("despues del servicio");
   };
-  sacarInformacion = (event) => {   
+  sacarInformacion = (event) => {
     event.preventDefault();
     let num = this.cajaid.current.value;
 
     let provedor = this.state.provedores.find(
-      (provedor) => provedor.SupplierID == num
+      (provedor) => provedor.SupplierID === num
     );
     console.log(provedor);
     this.setState({
@@ -29,8 +30,8 @@ export default class ServiceApiSuppliers extends Component {
     });
   };
   state = {
-    provedores: [],
-    provedor: null,
+    provedores: [], //todos los provedores
+    provedor: null, // provedor del cual pinto la informacion
   };
   componentDidMount() {
     this.loadProvedores();
@@ -60,7 +61,7 @@ export default class ServiceApiSuppliers extends Component {
             <h2>Nombre: {this.state.provedor.ContactName}</h2>
             <p>Nombre Compañía: {this.state.provedor.CompanyName}</p>
             <p>
-              Dirección: 
+              Dirección:
               {this.state.provedor.Address}
             </p>
             {/* Puedes seguir agregando más campos del objeto */}
