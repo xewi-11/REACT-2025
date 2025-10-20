@@ -7,9 +7,11 @@ import ServiceApiSuppliers from "./components/ServiceApiSuppliers";
 import EmpleadosDepartamento from "./components/EmpleadosDepartamento";
 import ServiceEmpleadosDepartamentos from "./components/ServiceEmpleadosDepartamentos";
 import ServiceEmpleadosOfice from "./components/ServiceEmpleadosOfice";
+import Departamentos from "./components/maestrodetalle/Departamentos";
+import Cursos from "./components/ejemplocomunicacionalumno/Cursos";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<ServiceEmpleadosOfice />);
+root.render(<Cursos />);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
