@@ -1,11 +1,13 @@
 import React, { Component } from "react";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import Global from "../Global";
 import axios from "axios";
+import DetalleDoctor from "./DetalleDoctor";
 export default class extends Component {
   url = Global.apiDoctores;
   state = {
     doctores: [],
+    iddoctor: null,
   };
   loadDoctores = () => {
     let request = "api/Doctores/DoctoresHospital/" + this.props.idhospital;
@@ -22,7 +24,15 @@ export default class extends Component {
   componentDidUpdate = (oldProps) => {
     if (oldProps.idhospital != this.props.idhospital) {
       this.loadDoctores();
+      this.setState({
+        iddoctor: null,
+      });
     }
+  };
+  buscarDoctor = (id) => {
+    this.setState({
+      iddoctor: id,
+    });
   };
   render() {
     return (
@@ -37,6 +47,7 @@ export default class extends Component {
                 <th scope="col">especialidad</th>
                 <th scope="col">salario</th>
                 <th scope="col">id Hospital</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -48,12 +59,23 @@ export default class extends Component {
                     <td>{doctor.especialidad}</td>
                     <td>{doctor.salario}</td>
                     <td>{doctor.idHospital}</td>
+                    <td>
+                      <button
+                        className="btn btn-info"
+                        onClick={() => this.buscarDoctor(doctor.idDoctor)}
+                      >
+                        Ver detalles
+                      </button>
+                    </td>
                   </tr>
                 );
               })}
             </tbody>
           </table>
         </div>
+        {this.state.iddoctor && (
+          <DetalleDoctor iddoctor={this.state.iddoctor} />
+        )}
       </div>
     );
   }

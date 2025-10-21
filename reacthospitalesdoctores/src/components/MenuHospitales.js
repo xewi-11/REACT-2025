@@ -45,7 +45,7 @@ export default class MenuHospitales extends Component {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/doctores/22">
+                <NavLink className="nav-link" to="/doctoresdetalles/435">
                   Doctores
                 </NavLink>
               </li>
