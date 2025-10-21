@@ -6,6 +6,7 @@ import Home from "./Home";
 import NotFound from "./NotFound";
 import { useParams } from "react-router-dom";
 import Collatz from "./Collatz";
+import MenuRutas from "./MenuRutas";
 export default class Router extends Component {
   render() {
     function TablaMultiplicarElement() {
@@ -20,6 +21,7 @@ export default class Router extends Component {
     }
     return (
       <BrowserRouter>
+        <MenuRutas />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route

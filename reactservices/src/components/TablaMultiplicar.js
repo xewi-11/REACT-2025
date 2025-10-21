@@ -18,6 +18,11 @@ export default class TablaMultiplicar extends Component {
   componentDidMount = () => {
     this.generarMultiplicar();
   };
+  componentDidUpdate = (oldProps) => {
+    if (oldProps.numero != this.props.numero) {
+      this.generarMultiplicar();
+    }
+  };
   render() {
     return (
       <div>
