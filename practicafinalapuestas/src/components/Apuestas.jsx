@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { Component } from 'react'
-import { Navigate, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 
  function RealizarApuesta(){
         const navigate=useNavigate();
